@@ -6,8 +6,8 @@ import java.math.*;
 public class Main {
 
 	public static void main(String[] args) {
-		int N = 200;
-		int runTimes = 100;				
+		int N = 10;
+		int runTimes = 1;				
 		int[] runForOpenNums = PercolationStats(N, runTimes);
 		System.out.printf("[PercolationStats]  N=%d   runTimes=%d\n",N,runTimes);
 		System.out.printf("\t mean:   %f\n",mean(runForOpenNums,N,runTimes));
@@ -20,6 +20,7 @@ public class Main {
 		while(!temp.isConnected()) {
 			temp.open(rand.nextInt(N)+1, rand.nextInt(N)+1);// range(1,N+1)
 		}
+		temp.print();
 		return temp.openNum();
 	}
 	public static int[] PercolationStats(int N, int runTimes) {
